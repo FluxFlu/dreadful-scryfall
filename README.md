@@ -16,3 +16,10 @@ Common commands in this program are as follows:
 - ids
 - type
 - is:commander
+
+Potential features:
+
+- Logical operators (AND and OR)
+- Other "is" commands
+- Forward and back buttons at the bottom of the screen
+- Sorting
