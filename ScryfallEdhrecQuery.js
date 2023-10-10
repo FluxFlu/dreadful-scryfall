@@ -327,20 +327,23 @@ getLegalCards().then(async (cardList) => {
                 if (passes_tests) {
                     card_count++;
                     let cardImage = document.getElementById(card.oracle_id);
+                    let img = document.getElementById("img_" + card.oracle_id);
                     if (!cardImage) {
                         cardImage = document.createElement("a");
-                        const img = new Image();
+                        img = new Image();
                         if (!card.image_uris)
                             img.src = card.card_faces[0].image_uris.normal;
                         else
                             img.src = card.image_uris.normal;
+                        console.log(card, card_index);
                         cardImage.href = card.scryfall_uri;
                         cardImage.id = card.oracle_id;
-                        img.style.top = "calc(7 / 5 * " + Math.floor(card_index / 4) + " * 33.5vh + 20.5vh)";
-                        img.style.left = "calc(" + (card_index % 4) + " * 15.5vw + 19.2vw)";
+                        img.id = "img_" + card.oracle_id;
                         cardImage.appendChild(img);
                         imgDiv.appendChild(cardImage);
                     }
+                    img.style.top = "calc(7 / 5 * " + Math.floor(card_index / 4) + " * 33.5vh + 20.5vh)";
+                    img.style.left = "calc(" + (card_index % 4) + " * 15.5vw + 19.2vw)";
                     cardImage.style.display = "block";
                 } else {
                     const cardImage = document.getElementById(card.oracle_id);
